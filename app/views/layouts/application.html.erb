@@ -10,6 +10,13 @@
   </head>
 
   <body>
+    <nav>
+      <ol>
+        <li><%= link_to "Authors Index", authors_path %></li>
+        <li><%= link_to "Books Index", books_path %></li>
+      </ol>
+    </nav>
+    <hr>
     <%= yield %>
   </body>
 </html>

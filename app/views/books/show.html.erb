@@ -18,6 +18,6 @@
 <%= form_for Contribution.new do |f| %>
   <%= f.label :author_id %>
   <%= f.collection_select :author_id, @authors, :id, :name %>
-  <%= f.hidden_field :book_id, value:@book.id  %>
+  <%= f.hidden_field :book_id, value: @book.id  %>
   <%= f.submit "Add Author" %>
 <% end %>

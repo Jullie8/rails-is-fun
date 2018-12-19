@@ -1,3 +1,4 @@
+Contribution.destroy_all
 Author.destroy_all
 Book.destroy_all
 

@@ -1,1 +1,13 @@
 <h1><%= @author.name_and_year %></h1>
+<h2>Books: </h2>
+<ul>
+  <% @contributions.each do |contribution| %>
+    <li><%= link_to contribution.book.title, book_path(contribution.book) %></li>
+  <% end %>
+</ul>
+<%= link_to "Edit #{@author.name}", edit_author_path(@author) %>
+
+<%= form_for @author, method: :delete do |f|%>
+<%= f.hidden_field :author_id, value: @author.id %>
+<%= f.submit "Delete #{@author.name}" %>
+<% end %>
