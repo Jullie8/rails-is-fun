@@ -2,14 +2,22 @@
 
 <h2> Authors: </h2>
 <ul>
-  <% @book.authors.each do |author| %>
-    <li><%= link_to author.name_and_year, author_path(author) %></li>
+  <% @book.contributions.each do |contribution| %>
+    <li><%= link_to contribution.author.name_and_year, author_path(contribution.author) %>
+
+       <%= form_tag contribution_path(contribution), method: 'delete' do %>
+        <%=submit_tag "Remove Author" %>
+        <%end%>
+
+    </li>
   <% end %>
 </ul>
+
+
 
 <%= form_for Contribution.new do |f| %>
   <%= f.label :author_id %>
   <%= f.collection_select :author_id, @authors, :id, :name %>
-  <%= f.hidden_field :book_id  %>
+  <%= f.hidden_field :book_id, value:@book.id  %>
   <%= f.submit "Add Author" %>
 <% end %>
